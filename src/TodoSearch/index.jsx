@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/TodoSearch.css'
+import './TodoSearch.css'
 
 function TodoSearch({ searchValue, setSearchValue }) {
     const onSearchChange = (e) => {
@@ -17,7 +17,6 @@ function TodoSearch({ searchValue, setSearchValue }) {
                 placeholder="Buscar tarea" 
                 onChange={onSearchChange}
             />
-            <p>{searchValue}</p>
         </div>
     )
 }
