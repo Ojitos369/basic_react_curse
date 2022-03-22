@@ -1,4 +1,5 @@
 import React from 'react'
+import { TodoContext } from '../TodoContext';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
@@ -6,56 +7,39 @@ import { TodoItem } from '../TodoItem';
 import { TodoAdd } from '../TodoAdd';
 import { Filter } from '../Filter';
 
-function AppUI({
-  loading,
-  totalCompletedTodo,
-  totalTodos,
-  addTodo,
-  filtro,
-  setFiltro,
-  searchValue,
-  setSearchValue,
-  todos_list,
-  changeTodoDone,
-  delTodo,
-}) {
+function AppUI() {
     return (
         <React.Fragment>
-          <TodoCounter 
-            totalCompletedTodo={totalCompletedTodo}
-            totalTodos={totalTodos}
-          />
+          <TodoCounter />
     
           <div className='container-fluent mt-4'>
             <div className='row d-flex justify-content-center'>
               <div className='col-11 col-md-5 container-fluent'>
-                <TodoAdd addTodo={addTodo} />
+                <TodoAdd />
                 <div className='row d-flex justify-content-center mt-4'>
-                  <Filter 
-                    filtro={filtro}
-                    setFiltro={setFiltro}
-                  />
+                  <Filter />
                 </div>
               </div>
               <div className='col-12 col-md-7 container-fluent'>
                 <div className='row d-flex justify-content-center'>
-                  <TodoSearch
-                    searchValue={searchValue}
-                    setSearchValue={setSearchValue}
-                  />
+                  <TodoSearch />
                 </div>
-                <TodoList>
-                  {loading && <p className='text-center text-light h4'>Cargando Los datos...</p>}
-                  {(!loading && todos_list.length === 0) && <p className='text-center text-light h4'>Agrega tu nuevo TODO :3</p>}
-                  {todos_list.map(todo => (
-                    <TodoItem 
-                      key={todo.key}
-                      todo={todo}
-                      changeTodoDone={changeTodoDone}
-                      delTodo={delTodo}
-                    />
-                  ))}
-                </TodoList>
+                <TodoContext.Consumer>
+                  {({ 
+                    error, 
+                    loading,
+                    todos_list,
+                  }) => (
+                    <TodoList>
+                      {error && <p className='text-center text-light h4'>Algo salio mal :'c F for you...</p>}
+                      {loading && <p className='text-center text-light h4'>Cargando Los datos...</p>}
+                      {(!loading && todos_list.length === 0) && <p className='text-center text-light h4'>Agrega tu nuevo TODO :3</p>}
+                      {todos_list.map(todo => (
+                        <TodoItem />
+                      ))}
+                    </TodoList>
+                  )}
+                </TodoContext.Consumer>
               </div>
             </div>
           </div>
