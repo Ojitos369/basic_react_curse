@@ -1,17 +1,22 @@
 import React from 'react'
 
-function Filter() {
-    const filter_type = 'All'
+function Filter({ filtro, setFiltro }) {
     const filters_class = [
-        `col-3 btn ${filter_type === 'All' ? 'btn-success' : 'btn-primary'} text-center`,
-        `col-3 btn ${filter_type === 'Done' ? 'btn-success' : 'btn-primary'} text-center`,
-        `col-4 btn ${filter_type === 'Pending' ? 'btn-success' : 'btn-primary'} text-center`
+        `col-3 btn ${filtro === 'All' ? 'btn-success' : 'btn-primary'} text-center`,
+        `col-3 btn ${filtro === 'Done' ? 'btn-success' : 'btn-primary'} text-center`,
+        `col-4 btn ${filtro === 'Pending' ? 'btn-success' : 'btn-primary'} text-center`
     ]
+
+    const onFilterClick = (e) => {
+        const text = e.target.textContent
+        setFiltro(text)
+    }
+
     return (
         <div className='row d-flex justify-content-center'>
-            <button className={filters_class[0]}>All</button>
-            <button className={filters_class[1]}>Done</button>
-            <button className={filters_class[2]}>Pending</button>
+            <button onClick={onFilterClick} className={filters_class[0]}>All</button>
+            <button onClick={onFilterClick} className={filters_class[1]}>Done</button>
+            <button onClick={onFilterClick} className={filters_class[2]}>Pending</button>
         </div>
     )
 }

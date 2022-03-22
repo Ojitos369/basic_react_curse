@@ -7,7 +7,7 @@ import { TodoItem } from './components/TodoItem';
 import { TodoAdd } from './components/TodoAdd';
 import { Filter } from './components/Filter';
 
-const todos = [
+const todosList = [
   {key: 1, text: 'Learn React', done: true},
   {key: 2, text: 'Deploy Project', done: false},
   {key: 3, text: 'Listening Twice', done: false},
@@ -20,25 +20,43 @@ const todos = [
 ]
 
 function App(props) {
+  const [todos, setTodos] = React.useState(todosList);
+  const [searchValue, setSearchValue] = React.useState('')
+  const todos_filter = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()))
+  const [filtro, setFiltro] = React.useState('All')
+  const todos_list = todos_filter.filter(todo => filtro === 'All' || (filtro === 'Done' && todo.done) || (filtro === 'Pending' && !todo.done))
+
+  const totalCompletedTodo = todos.filter(todo => todo.done).length
+  const totalTodos = todos.length
+
   return (
     <React.Fragment>
-      <TodoCounter />
+      <TodoCounter 
+        totalCompletedTodo={totalCompletedTodo}
+        totalTodos={totalTodos}
+      />
 
       <div className='container-fluent mt-4'>
         <div className='row d-flex justify-content-center'>
           <div className='col-11 col-md-5 container-fluent'>
-            <TodoAdd />
+            <TodoAdd todos={todos} setTodos={setTodos}/>
             <div className='row d-flex justify-content-center mt-4'>
-              <Filter />
+              <Filter 
+                filtro={filtro}
+                setFiltro={setFiltro}
+              />
             </div>
           </div>
           <div className='col-12 col-md-7 container-fluent'>
             <div className='row d-flex justify-content-center'>
-              <TodoSearch />
+              <TodoSearch
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+              />
             </div>
             <TodoList>
-              {todos.map(todo => (
-                <TodoItem key={todo.key} todo={todo}/>
+              {todos_list.map(todo => (
+                <TodoItem key={todo.key} todo={todo} setTodos={setTodos} />
               ))}
             </TodoList>
           </div>
