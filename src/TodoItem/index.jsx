@@ -9,9 +9,8 @@ function TodoItem(props) {
     return (
         <li className={`d-flex justify-content-around align-items-center ${backgroundClass} TodoItem`} id={`container-${props.todo.key}`}>
             <input 
-                className='col-1'
+                className='d-none'
                 type="checkbox"
-                name="done"
                 id={props.todo.key}
                 checked={props.todo.done}
                 onChange={() => changeTodoDone(props.todo)}

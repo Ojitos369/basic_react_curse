@@ -7,16 +7,17 @@ import { TodoAdd } from '../TodoAdd';
 import { Filter } from '../Filter';
 
 function AppUI({
-    totalCompletedTodo,
-    totalTodos,
-    addTodo,
-    filtro,
-    setFiltro,
-    searchValue,
-    setSearchValue,
-    todos_list,
-    changeTodoDone,
-    delTodo,
+  loading,
+  totalCompletedTodo,
+  totalTodos,
+  addTodo,
+  filtro,
+  setFiltro,
+  searchValue,
+  setSearchValue,
+  todos_list,
+  changeTodoDone,
+  delTodo,
 }) {
     return (
         <React.Fragment>
@@ -44,6 +45,8 @@ function AppUI({
                   />
                 </div>
                 <TodoList>
+                  {loading && <p className='text-center text-light h4'>Cargando Los datos...</p>}
+                  {(!loading && todos_list.length === 0) && <p className='text-center text-light h4'>Agrega tu nuevo TODO :3</p>}
                   {todos_list.map(todo => (
                     <TodoItem 
                       key={todo.key}
