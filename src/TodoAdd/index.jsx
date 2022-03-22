@@ -1,6 +1,8 @@
 import React from 'react'
+import { TodoContext } from '../TodoContext';
 
-function TodoAdd({ addTodo }) {
+function TodoAdd() {
+    const { addTodo } = React.useContext(TodoContext);
     
     return (
         <div className='row d-flex justify-content-center'>

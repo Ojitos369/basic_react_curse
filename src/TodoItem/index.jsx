@@ -1,11 +1,11 @@
 import React from 'react'
+import { TodoContext } from '../TodoContext';
 import './TodoItem.css'
 
 function TodoItem(props) {
+    const {changeTodoDone, delTodo} = React.useContext(TodoContext);
     let backgroundClass = props.todo.done ? 'todo-done' : 'todo-undone';
     
-    const changeTodoDone = props.changeTodoDone
-    const delTodo = props.delTodo
     return (
         <li className={`d-flex justify-content-around align-items-center ${backgroundClass} TodoItem`} id={`container-${props.todo.key}`}>
             <input 

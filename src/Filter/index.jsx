@@ -1,6 +1,8 @@
 import React from 'react'
+import { TodoContext } from '../TodoContext';
 
-function Filter({ filtro, setFiltro }) {
+function Filter() {
+    const { filtro, setFiltro } = React.useContext(TodoContext);
     const filters_class = [
         `col-3 btn ${filtro === 'All' ? 'btn-success' : 'btn-primary'} text-center`,
         `col-3 btn ${filtro === 'Done' ? 'btn-success' : 'btn-primary'} text-center`,

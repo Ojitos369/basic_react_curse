@@ -1,7 +1,12 @@
 import React from 'react'
+import { TodoContext } from '../TodoContext';
 import './TodoCounter.css'
 
-function TodoCounter({ totalCompletedTodo, totalTodos }) {
+function TodoCounter() {
+    const { 
+        totalCompletedTodo,
+        totalTodos 
+    } = React.useContext(TodoContext);
     return (
         <header className='container-fluent mt-4 text-light'>
             <div className='row'>

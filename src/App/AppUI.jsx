@@ -8,6 +8,11 @@ import { TodoAdd } from '../TodoAdd';
 import { Filter } from '../Filter';
 
 function AppUI() {
+    const { 
+      error, 
+      loading,
+      todos_list,
+    } = React.useContext(TodoContext);
     return (
         <React.Fragment>
           <TodoCounter />
@@ -24,22 +29,14 @@ function AppUI() {
                 <div className='row d-flex justify-content-center'>
                   <TodoSearch />
                 </div>
-                <TodoContext.Consumer>
-                  {({ 
-                    error, 
-                    loading,
-                    todos_list,
-                  }) => (
-                    <TodoList>
-                      {error && <p className='text-center text-light h4'>Algo salio mal :'c F for you...</p>}
-                      {loading && <p className='text-center text-light h4'>Cargando Los datos...</p>}
-                      {(!loading && todos_list.length === 0) && <p className='text-center text-light h4'>Agrega tu nuevo TODO :3</p>}
-                      {todos_list.map(todo => (
-                        <TodoItem />
-                      ))}
-                    </TodoList>
-                  )}
-                </TodoContext.Consumer>
+                  <TodoList>
+                    {error && <p className='text-center text-light h4'>Algo salio mal :'c F for you...</p>}
+                    {loading && <p className='text-center text-light h4'>Cargando Los datos...</p>}
+                    {(!loading && todos_list.length === 0) && <p className='text-center text-light h4'>Agrega tu nuevo TODO :3</p>}
+                    {todos_list.map(todo => (
+                      <TodoItem todo={todo}/>
+                    ))}
+                  </TodoList>
               </div>
             </div>
           </div>
