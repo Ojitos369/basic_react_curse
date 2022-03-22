@@ -1,8 +1,26 @@
 import React from 'react'
+import '../css/TodoSearch.css'
 
 function TodoSearch() {
+    let [searchValue, setSearchValue] = React.useState('');
+
+    const onSearchChange = (e) => {
+        const text = e.target.value
+        setSearchValue(text)
+    }
+
     return (
-        <input type="text" name="search" value="" placeholder="Buscar tarea" />
+        <div className='d-flex justify-content-center mb-4'>
+            <input 
+                className='col-10 search text-center'
+                type="text"
+                name="search"
+                value={searchValue}
+                placeholder="Buscar tarea" 
+                onChange={onSearchChange}
+            />
+            <p>{searchValue}</p>
+        </div>
     )
 }
 

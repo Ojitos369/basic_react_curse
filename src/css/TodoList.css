@@ -1,0 +1,10 @@
+.TodoList {
+    height: 80%;
+    overflow: scroll;
+    border: 1px solid #ccc;
+}
+
+.TodoList::-webkit-scrollbar {
+    -webkit-appearance: none;
+    -webkit-scrollbar-corner: none;
+}
