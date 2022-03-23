@@ -59,10 +59,19 @@
     box-shadow: 0px 0px 25px 10px #f00;
 }
 
-.todo-del-over{
-    background: #f00;
+.edit-todo-item {
+    background: #0000;
+    border: none;
+    text-decoration: none;
+    height: 100%;
+    border-radius: 0 25px 25px 0;
+    
+}
+
+.edit-todo-item:hover {
+    background: #880;
     color: #fff;
-    -webkit-box-shadow: 0px 0px 25px 10px #f00;
-    -moz-box-shadow: 0px 0px 25px 10px #f00;
-    box-shadow: 0px 0px 25px 10px #f00;
+    -webkit-box-shadow: 0px 0px 25px 10px #880;
+    -moz-box-shadow: 0px 0px 25px 10px #880;
+    box-shadow: 0px 0px 25px 10px #880;
 }

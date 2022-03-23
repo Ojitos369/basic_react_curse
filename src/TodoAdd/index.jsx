@@ -5,7 +5,10 @@ function TodoAdd() {
     const { addTodo } = React.useContext(TodoContext);
     
     return (
-        <div className='row d-flex justify-content-center'>
+        <form className='row d-flex justify-content-center' id="add-form" onSubmit={e => {
+            e.preventDefault();
+            addTodo();
+        }}>
             <input 
                 className='col-11 col-md-7'
                 type="text"
@@ -15,11 +18,11 @@ function TodoAdd() {
                 />
             <button
                 className='col-11 col-md-3'
-                onClick={addTodo}
+                type="submit"
             >
                 ➕
             </button>
-        </div>
+        </form>
     )
 }
 
