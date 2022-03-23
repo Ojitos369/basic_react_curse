@@ -1,6 +1,9 @@
 import React from 'react'
+import { TodosLoading } from '../TodosLoading';
 import { TodoContext } from '../TodoContext';
 import { TodoCounter } from '../TodoCounter';
+import { TodosEmpty } from '../TodosEmpty';
+import { TodosError } from '../TodosError';
 import { TodoSearch } from '../TodoSearch';
 import { TodoChart } from '../TodoChart';
 import { TodoList } from '../TodoList';
@@ -40,9 +43,9 @@ function AppUI() {
                   <TodoSearch />
                 </div>
                   <TodoList>
-                    {error && <p className='text-center text-light h4'>Algo salio mal :'c F for you...</p>}
-                    {loading && <p className='text-center text-light h4'>Cargando Los datos...</p>}
-                    {(!loading && todosList.length === 0) && <p className='text-center text-light h4'>Agrega tu nuevo TODO :3</p>}
+                    {error && <TodosError />}
+                    {(loading && !error) && <TodosLoading />}
+                    {(!loading && todosList.length === 0) && <TodosEmpty />}
                     {todosList.map(todo => (
                       <TodoItem key={todo.key} todo={todo}/>
                     ))}

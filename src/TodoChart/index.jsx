@@ -27,7 +27,7 @@ function TodoChart() {
     const porcentaje = totalCompletedTodo / totalTodos * 100;
     const title = !isNaN(porcentaje) ? `${porcentaje.toFixed(2)}% completed` : 'No hay TODOS';
     return (
-        <div className="chart">
+        <div className="chart mb-5">
             <p className='text-center h3 text-light'>{title}</p>
             {!isNaN(porcentaje) &&
                 <Chart
