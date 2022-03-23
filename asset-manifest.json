@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/basic_react_curse/static/css/main.bdd206ec.css",
+    "main.js": "/basic_react_curse/static/js/main.a8ff8f97.js",
+    "index.html": "/basic_react_curse/index.html",
+    "main.bdd206ec.css.map": "/basic_react_curse/static/css/main.bdd206ec.css.map",
+    "main.a8ff8f97.js.map": "/basic_react_curse/static/js/main.a8ff8f97.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bdd206ec.css",
+    "static/js/main.a8ff8f97.js"
+  ]
+}
