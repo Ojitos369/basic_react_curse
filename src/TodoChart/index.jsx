@@ -24,25 +24,28 @@ function TodoChart() {
             }
         ]
     };
-    const title =  `${totalCompletedTodo / totalTodos * 100}% completed`;
+    const porcentaje = totalCompletedTodo / totalTodos * 100;
+    const title = !isNaN(porcentaje) ? `${porcentaje.toFixed(2)}% completed` : 'No hay TODOS';
     return (
         <div className="chart">
             <p className='text-center h3 text-light'>{title}</p>
-            <Chart
-                type="pie"
-                data={state}
-                options={{
-                    title:{
-                        display:true,
-                        text:'TODOS Chart',
-                        fontSize:20
-                    },
-                    legend:{
-                        display:true,
-                        position:'top'
-                    }
-                }}
-            />
+            {!isNaN(porcentaje) &&
+                <Chart
+                    type="pie"
+                    data={state}
+                    options={{
+                        title:{
+                            display:true,
+                            text:'TODOS Chart',
+                            fontSize:20
+                        },
+                        legend:{
+                            display:true,
+                            position:'top'
+                        }
+                    }}
+                />
+            }
         </div>
     )
 }
