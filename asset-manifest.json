@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/basic_react_curse/static/css/main.bdd206ec.css",
-    "main.js": "/basic_react_curse/static/js/main.a8ff8f97.js",
+    "main.css": "/basic_react_curse/static/css/main.bf038f0e.css",
+    "main.js": "/basic_react_curse/static/js/main.bf276485.js",
+    "static/media/loading.gif": "/basic_react_curse/static/media/loading.ac9c765316496a846b15.gif",
+    "static/media/empty.gif": "/basic_react_curse/static/media/empty.57008d6101fbe09934e0.gif",
+    "static/media/error.gif": "/basic_react_curse/static/media/error.f19bbe0d8040fd981fc9.gif",
     "index.html": "/basic_react_curse/index.html",
-    "main.bdd206ec.css.map": "/basic_react_curse/static/css/main.bdd206ec.css.map",
-    "main.a8ff8f97.js.map": "/basic_react_curse/static/js/main.a8ff8f97.js.map"
+    "main.bf038f0e.css.map": "/basic_react_curse/static/css/main.bf038f0e.css.map",
+    "main.bf276485.js.map": "/basic_react_curse/static/js/main.bf276485.js.map"
   },
   "entrypoints": [
-    "static/css/main.bdd206ec.css",
-    "static/js/main.a8ff8f97.js"
+    "static/css/main.bf038f0e.css",
+    "static/js/main.bf276485.js"
   ]
 }
